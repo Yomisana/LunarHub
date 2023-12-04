@@ -11,6 +11,7 @@ set "url=https://curl.se/windows/latest.cgi?p=win64-mingw.zip"
 set "curlDownloadPath=%cd%\curl.zip"
 set "extractPath=%cd%\curl"
 set "curlPath=%cd%\curl"
+set "libPath=%cd%\lib"
 
 @REM 下載 curl.zip
 echo Download curl.zip...
@@ -48,6 +49,22 @@ echo 搜尋完成
 echo.
 echo.
 echo.
+
+@REM 創建 lib 資料夾，如果不存在
+if not exist "%libPath%" (
+    mkdir "%libPath%"
+    echo Created lib folder: %libPath%
+)
+
+@REM 移動 curl.exe 到 lib 資料夾
+move "%curlPath%\curl.exe" "%libPath%\"
+echo 移動 %curlPath%\curl.exe 到 %libPath%\
+echo 移動完成
+
+@REM 刪除解壓縮的資料夾
+echo Deleting extractPath: %extractPath%
+rmdir /s /q "%extractPath%"
+
 curl.exe --version
 goto :eof
 
@@ -57,8 +74,8 @@ if exist "%1\curl.exe" (
     echo 在 %1 中找到 curl.exe：%1\curl.exe
 
     @REM 移動非空的 curl.exe 到原先的目錄下
-    move "%1\curl.exe" "%cd%\"
-    echo 移動 %1\curl.exe 到 %cd%\
+    move "%1\curl.exe" "%libPath%\"
+    echo 移動 %1\curl.exe 到 %libPath%\
 
     echo 移動完成
 )
