@@ -5,3 +5,5 @@ chcp 65001 > nul
 @REM Author: Yomisana
 @REM Date: 2023-12-04
 @REM Version: 1.0.0
+
+@REM 安裝前置作業

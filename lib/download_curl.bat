@@ -20,7 +20,7 @@ title LunarHub - Download - curl
 echo Download
 echo → Download
 echo.
-bitsadmin /transfer downloadJob /download /priority normal %url% %curlDownloadPath%
+bitsadmin /transfer download_curl /download /priority normal %url% %curlDownloadPath%
 timeout /t 1 /nobreak >nul
 goto extract
 
@@ -72,7 +72,7 @@ if exist "%1\curl.exe" (
 )
 
 @REM 移動 curl.exe 到 bin 資料夾
-move "%curlPath%\curl.exe" "%binPath%\"
+move "%curlPath%\curl.exe" "%binPath%\debug-curl.exe"
 @REM echo 移動 %curlPath%\curl.exe 到 %binPath%\
 @REM echo 移動完成
 timeout /t 1 /nobreak >nul
