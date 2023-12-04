@@ -7,18 +7,27 @@ chcp 65001 > nul
 @REM Version: 1.0.0
 
 :menu
+title LunarHub
 cls
 echo LunarHub
+echo.
+
+
 echo 1. Run screenshot2code
 @REM echo 2. Download curl
+echo 2. Install Dependency
 echo 3. Exit
 
-set /p choice=Enter the number of your choice: 
 
-if "%choice%"=="1" goto screenshot2code
-@REM if "%choice%"=="2" goto downloadCurl
-if "%choice%"=="2" goto check_dependency
-if "%choice%"=="3" goto exitScript
+echo.
+@REM set /p choice=Enter the number of your choice: 
+choice /c 123456789 /n /m "請選擇操作 (0-3): "
+
+if "%errorlevel%"=="1" goto screenshot2code
+@REM if "%errorlevel%"=="2" goto downloadCurl
+if "%errorlevel%"=="2" goto check_dependency
+if "%errorlevel%"=="9" goto exitScript
+goto menu
 
 :screenshot2code
 cls
@@ -27,12 +36,12 @@ call lib\screenshot2code.bat
 pause
 goto menu
 
-:downloadCurl
-cls
-echo Running downloadCurl...
-call lib\curl.bat
-pause
-goto menu
+@REM :downloadCurl
+@REM cls
+@REM echo Running downloadCurl...
+@REM call lib\curl.bat
+@REM pause
+@REM goto menu
 
 :check_dependency
 cls
