@@ -24,8 +24,12 @@ echo.
 choice /c 123456789 /n /m "請選擇操作 (0-3): "
 
 if "%errorlevel%"=="1" goto screenshot2code
-@REM if "%errorlevel%"=="2" goto downloadCurl
 if "%errorlevel%"=="2" goto check_dependency
+
+if "%errorlevel%"=="3" goto downloadCurl
+if "%errorlevel%"=="4" goto downloadGit
+
+
 if "%errorlevel%"=="9" goto exitScript
 goto menu
 
@@ -42,6 +46,13 @@ goto menu
 @REM call lib\curl.bat
 @REM pause
 @REM goto menu
+
+:downloadGit
+cls
+echo Running downloadGit...
+call lib\git.bat
+pause
+goto menu
 
 :check_dependency
 cls
