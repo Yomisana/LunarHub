@@ -19,6 +19,7 @@ echo 3. Download curl
 echo 4. download git
 echo 5. download screenshot2code
 echo 6. download python
+echo 7. download node
 echo 9. Exit
 
 
@@ -34,6 +35,7 @@ if "%errorlevel%"=="3" goto downloadCurl
 if "%errorlevel%"=="4" goto downloadGit
 if "%errorlevel%"=="5" goto downloads2c
 if "%errorlevel%"=="6" goto downloadpy
+if "%errorlevel%"=="7" goto downloadnode
 
 
 if "%errorlevel%"=="9" goto exitScript
@@ -78,6 +80,13 @@ goto menu
 cls
 echo Running downloadpy...
 call lib\download_python.bat
+pause
+goto menu
+
+:downloadnode
+cls
+echo Running downloadnode...
+call lib\download_node.bat
 pause
 goto menu
 
