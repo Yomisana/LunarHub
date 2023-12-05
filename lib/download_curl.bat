@@ -17,6 +17,7 @@ set "binPath=%cd%\bin"
 :download
 @REM 下載 curl.zip
 title LunarHub - Download - curl
+echo curl
 echo Download
 echo → Download
 echo.
@@ -28,6 +29,7 @@ goto extract
 @REM 解壓縮 curl.zip
 cls
 title LunarHub - Extract - curl
+echo curl
 echo Download → Extract
 echo → Extract
 echo.
@@ -41,6 +43,7 @@ timeout /t 1 /nobreak >nul
 :move
 cls
 title LunarHub - Move - curl
+echo curl
 echo Download → Extract → Move
 echo → Move
 echo.
@@ -81,6 +84,7 @@ timeout /t 1 /nobreak >nul
 @REM 清除 curl.zip
 cls
 title LunarHub - Clean - curl
+echo curl
 echo Download → Extract → Move → Clean
 echo → Clean
 echo.
@@ -98,6 +102,7 @@ goto end
 :end
 cls
 title LunarHub - Done - curl
+echo curl
 echo Download → Extract → Move → Clean → Done!
 echo → Done
 echo.

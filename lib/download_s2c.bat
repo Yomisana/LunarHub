@@ -8,6 +8,7 @@ chcp 65001 > nul
 
 cls
 title LunarHub - download - screenshot2code
+echo curl → git → screenshot2code
 echo download
 echo → download
 @REM cd /d "%cd%\bin"
@@ -17,5 +18,6 @@ echo → download
 
 cls
 title LunarHub - done - screenshot2code
+echo curl → git → screenshot2code
 echo download → done
 echo → done

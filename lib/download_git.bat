@@ -8,6 +8,7 @@ chcp 65001 > nul
 
 cls
 title LunarHub - download - git
+echo curl → git
 echo download
 echo → download
 @REM cd /d "%cd%\bin"
@@ -16,12 +17,14 @@ echo → download
 
 cls
 title LunarHub - move - git
+echo curl → git
 echo download → move
 echo → move
 move /y PortableGit-2.40.1-64-bit.7z.exe "%cd%\bin\git.7z.exe"
 
 cls
 title LunarHub - unzip - git
+echo curl → git
 echo download → move → unzip
 echo → unzip
 echo NOTIC: This will popup the window about unzip git.7z.exe to git folder.
@@ -30,11 +33,13 @@ echo Please don't close it.
 
 cls
 title LunarHub - clean - git
+echo curl → git
 echo download → move → unzip → clean
 echo → clean
 del /q /f "%cd%\bin\git.7z.exe"
 
 cls
 title LunarHub - done - git
+echo curl → git
 echo download → move → unzip → clean → done
 echo → done
