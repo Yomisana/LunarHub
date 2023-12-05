@@ -89,8 +89,10 @@ set "pthFile=%cd%\bin\python\python310._pth"
 for /f "usebackq delims=" %%i in ("%pthFile%") do (
     set "newData=%%i"
     set "newData=!newData:#import site=import site!"
-    echo !newData!>"%pthFile%"
+    echo !newData!>>"%pthFile%.new"
 )
+del "%pthFile%"
+move "%pthFile%.new" "%pthFile%"
 echo The python310._pth has been updated!
 timeout /t 1 /nobreak >nul
 
@@ -99,16 +101,20 @@ title LunarHub - install - pip of py
 echo curl → git → screenshot2code → python → pip
 echo download → move → update → install
 echo → install
-"%cd%\bin\python\python.exe" "%cd%\bin\python\get-pip.py"
+@REM 設定 PY 環境變數空間
+@REM set "PYTHONHOME=%cd%\bin\python"
+@REM set "PYTHONPATH=%cd%\bin\python"
+@REM set "PYTHONUTF8=1"
+"%cd%\bin\python\python.exe" "%cd%\bin\python\get-pip.py"  --no-warn-script-location
 "%cd%\bin\python\python.exe" -m pip install --upgrade pip
 echo Install pip done!
 timeout /t 1 /nobreak >nul
-pause
+
 "%cd%\bin\python\python.exe" -m pip install virtualenv
 "%cd%\bin\python\python.exe" -m virtualenv "%cd%\bin\s2c\venv"
 echo Install virtualenv done!
 timeout /t 1 /nobreak >nul
-pause
+
 
 cls
 title LunarHub - patch - pip of py
@@ -116,9 +122,8 @@ echo curl → git → screenshot2code → python → pip
 echo download → move → update → install → patch
 echo → patch
 echo Copy python important files
-copy "%cd%\bin\python\python310.zip" "%cd%\bin\s2c\venv\Scripts\python310.zip" /Y
+@REM copy "%cd%\bin\python\python310.zip" "%cd%\bin\s2c\venv\Scripts\python310.zip" /Y
 timeout /t 1 /nobreak >nul
-pause
 
 cls
 title LunarHub - done - pip of py
@@ -127,6 +132,5 @@ echo download → move → update → install → patch → done
 echo → done
 call "%cd%\bin\s2c\venv\Scripts\activate.bat"
 timeout /t 1 /nobreak >nul
-pause
 
 endlocal
