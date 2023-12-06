@@ -19,14 +19,6 @@ cls
 title LunarHub - download - node
 echo curl → git → screenshot2code → python → pip → node
 echo download → unzip
-@REM echo → create unzip dir
-@REM @REM 創建 node 資料夾，如果不存在
-@REM set "nodePath=%cd%\bin\node"
-@REM if not exist "%nodePath%" (
-@REM     mkdir "%nodePath%"
-@REM     echo Created pyPath folder: %nodePath%
-@REM     timeout /t 1 /nobreak >nul
-@REM )
 echo → unzip
 tar -xf %cd%\node-v21.3.0-win-x64.zip -C %cd%\bin\
 timeout /t 2 /nobreak >nul

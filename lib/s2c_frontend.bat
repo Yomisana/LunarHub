@@ -1,16 +1,37 @@
 @echo off
 chcp 65001 > nul
-@REM Project: screenshot2webcode
+@REM Project: screenshot2webcode_front
 @REM Description: 將截圖轉換成網頁程式碼(使用批次檔安裝)
 @REM Author: Yomisana
-@REM Date: 2023-12-04
-@REM Version: 2.0.0
+@REM Date: 2023-12-06
+@REM Version: 1.0.0
 
-@REM 環境變數
-@REM set envFile=%cd%\bin\s2c\backend\.env
+title LunarHub - frontend
+rem 設定目錄路徑
+set frontend_path=%cd%\bin\s2c\frontend\
+set node_path=%cd%\bin\node\
 
-@REM 安裝前置作業
-@REM cd %cd%\bin\s2c\backend
+rem 進入 frontend 目錄
+cd /d "%frontend_path%"
+
+rem 使用 node 的 npm 安裝依賴
+set npminstall=%cd%\node_modules
+
+if not exist "%npminstall%" (
+    "%node_path%\npm" install
+)
+
+rem 執行 npm dev
+"%node_path%\npm" run dev
+
+
+@REM @REM 安裝前置作業
+@REM cd %cd%\bin\s2c\frontend\
+
+@REM %cd%\bin\node\npm install
+@REM timeout /t 1 /nobreak >nul
+@REM %cd%\bin\node\npm dev
+
 
 
 @REM if not exist "%envFile%" (
@@ -34,10 +55,4 @@ chcp 65001 > nul
 @REM @REM timeout /t 1 /nobreak >nul
 @REM echo http://127.0.0.1:8080
 @REM poetry run uvicorn main:app --reload --port 8080
-
-start "後端批次檔" call %cd%\lib\s2c_backend.bat
-start "前端批次檔" call %cd%\lib\s2c_frontend.bat
-
-echo "兩個批次檔已經同時啟動"
-exit
 @REM goto menu

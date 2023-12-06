@@ -9,9 +9,19 @@ chcp 65001 > nul
 :menu
 title LunarHub
 cls
-echo LunarHub
+echo LunarHub Menu
 echo.
 
+
+echo.
+echo Dependency version:
+echo. & echo curl version: & %cd%\bin\curl.exe -V
+echo. & echo git version: & %cd%\bin\git\bin\git.exe -v
+echo. & echo python version: & %cd%\bin\python\python --version
+echo. & echo nodejs version: & %cd%\bin\node\node.exe -v 
+@REM echo. & echo npm version: & %cd%\bin\node\npm -v
+
+echo.
 
 echo 1. Run screenshot2code
 echo 2. Install Dependency

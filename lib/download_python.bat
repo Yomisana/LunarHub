@@ -111,7 +111,7 @@ echo Install pip done!
 timeout /t 1 /nobreak >nul
 
 "%cd%\bin\python\python.exe" -m pip install virtualenv
-"%cd%\bin\python\python.exe" -m virtualenv "%cd%\bin\s2c\venv"
+"%cd%\bin\python\python.exe" -m virtualenv "%cd%\bin\s2c\backend\venv"
 echo Install virtualenv done!
 timeout /t 1 /nobreak >nul
 
