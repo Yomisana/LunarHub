@@ -11,3 +11,6 @@ Initial goal, when I need to use something, I will add new projects here.
 # DEMO
 - Download curl
 ![DEMO GIF](./assets/demo.gif)
+
+# Known issues
+- 在有組織限制無法開啟 批次檔的電腦上可能無法使用。
